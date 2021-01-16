@@ -6,11 +6,32 @@ namespace MyFirstConsoleApplication
     {
         static void Main(string[] args)
         {
+            int myNumber;
+
+            //defaults to false
+            bool isMyNameDayna;
+            //defaults to null
+            bool? graduatedCollege;
+            Nullable<bool> graduatedCollege2;
+
+            string name = null;
+
+            //null conditional access operator - if thing on left is null, don't do the thing on the right
+            name?.ToString();
+            //null coalescing operator - if thing on left is null, use the thing on the right instead
+            name = name ?? "Nathan";
+
+            if (name != null)
+            {
+
+            }
+
+            //read input from a user
             Console.WriteLine("What is your first name");
             var input = Console.ReadLine();
 
             //strings
-            string name = "Dana"; /*declare variable*/
+            name = "Dana"; /*declare variable*/
             char firstLetter = 'N'; /*Single quotes only used for single characters*/
 
             //let myInterpolatedString = `this stuff ${firstLetter}`;
@@ -34,6 +55,11 @@ namespace MyFirstConsoleApplication
 
             Console.WriteLine(bigNumber);
 
+            //decimals can be represented by [f]loat(32bit) [d]ouble(64bit) or deci[m]al(128bit)
+            var adding = 1 + 1.1;
+            //in order to ensure that you get a decimal back from this, you have to add a decimal to one of the numbers you are dividing with
+            var division = 3 / 2d;
+
             var implicitStringThing = "this is an implicitly typed variable.";
 
             int uninitializedInt;
@@ -52,6 +78,49 @@ namespace MyFirstConsoleApplication
             weirdStuff = "More craziness";
 
             Console.WriteLine(weirdStuff);
+
+            var names = new string[5];
+            //array range
+            var namesRange = names[1..4];
+            //square brackets is an indexer
+            var secondName = names[1];
+            names[1] = "Jimmy";
+
+            var colors = new string[] { "white", "blue", "black", "yellow", "magenta" };
+
+            if (input == "Nathan")
+            {
+                Console.WriteLine("Duh");
+            }
+            else if (input == "blerg")
+            {
+                Console.WriteLine(input);
+            }
+            else
+            {
+                Console.WriteLine("Not Nathan");
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine($"currently for looping on number {i}");
+            }
+
+            while (true)
+            {
+                var counter = 1;
+                Console.WriteLine($"While loop interation {counter}.");
+
+                if (counter <= 5)
+                    continue;
+
+                break;
+            }
+
+            foreach (var color in colors)
+            {
+                Console.WriteLine($"Foreach looping on color {color}");
+            }
         }
     }
 }
